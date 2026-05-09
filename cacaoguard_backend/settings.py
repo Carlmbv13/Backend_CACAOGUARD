@@ -63,6 +63,19 @@ TEMPLATES = [
         },
     },
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+FRONTEND_URL = 'http://localhost:3000'
+BACKEND_URL = 'http://localhost:8000'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.spacemail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'cacaoguard@allstarmoney.xyz'# Gmail address
+EMAIL_HOST_PASSWORD = 'Darkside182!'
+DEFAULT_FROM_EMAIL = 'cacaoguard@allstarmoney.xyz'
+
+EMAIL_TIMEOUT = 30  # Timeout in seconds
+EMAIL_USE_LOCALTIME = False
 
 WSGI_APPLICATION = 'cacaoguard_backend.wsgi.application'
 

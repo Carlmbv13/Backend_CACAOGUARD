@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+import uuid
 
 class UserProfile(models.Model):
     ROLE_CHOICES = [
@@ -15,6 +16,10 @@ class UserProfile(models.Model):
     is_active = models.BooleanField(default=True)
     phone = models.CharField(max_length=20, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    email_verified = models.BooleanField(default=False)
+    email_verification_token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    verification_sent_at = models.DateTimeField(null=True, blank=True)
     
     def __str__(self):
         return f"{self.user.username} - {self.role}"
