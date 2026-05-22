@@ -15,7 +15,6 @@ class Scan(models.Model):
     severity = models.CharField(max_length=20, choices=SEVERITY_CHOICES, default='Healthy')
     confidence = models.FloatField(help_text="Confidence score 0-100")
     affected_area = models.DecimalField(max_digits=10, decimal_places=2, help_text="Square meters")
-    image = models.ImageField(upload_to='scans/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
